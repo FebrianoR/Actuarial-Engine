@@ -1,0 +1,11 @@
+# ============================================================
+#  Ngrok Configuration untuk Actuarial Engine
+#  Tunnel frontend (port 3000) saja
+#  Backend diakses melalui Next.js rewrites proxy
+# ============================================================
+version: "2"
+tunnels:
+  frontend:
+    proto: http
+    addr: 3000
+    inspect: true

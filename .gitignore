@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.egg
+
+# Environment
+.env
+*.local
+
+# Pytest
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Mypy
+.mypy_cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Audit logs (gunakan volume Docker, jangan commit)
+audit_logs/
+
+# Data sensitif (jangan commit ke VCS)
+data/sample_portfolios/*.csv
+data/assumptions/*_prod.json

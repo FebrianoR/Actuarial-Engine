@@ -1,0 +1,3 @@
+policyno,contract_id,cob,method,tsi,gwp,pvfcf,risk_adjustment,csm,lrc_net,lic,total_liability,insurance_contract_liability,earned_premium,loss_ratio,is_onerous,trace_id,status
+11052504744,11052504744,CSA,PAA,5000000.0,50000.0,0.0,0.0,0.0,48750.0,4027.326585,52777.326585,52777.326585,0.0,0.0,False,977722f4-c0db-4022-b11c-fec62d90ad87,ok
+11052504745,11052504745,CSA,PAA,5000000.0,50000.0,0.0,0.0,0.0,48750.0,4027.326585,52777.326585,52777.326585,0.0,0.0,False,0f3dfb6c-2ce1-4bdd-9ed9-bad3de1f97bc,ok

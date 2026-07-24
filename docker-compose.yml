@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  # ─── Backend (FastAPI) ─────────────────────────────────────
+  actuarial-engine:
+    build:
+      context: .
+      target: runtime
+    container_name: actuarial-engine
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Mount data (asumsi & template) agar bisa diupdate tanpa rebuild
+      - ./data:/app/data:ro
+      # Mount audit logs ke host untuk keperluan audit eksternal
+      - ./audit_logs:/app/audit_logs
+    networks:
+      - actuarial-net
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ─── Frontend (Next.js Dashboard) ──────────────────────────
+  actuarial-dashboard:
+    build:
+      context: ./actuarial-dashboard
+    container_name: actuarial-dashboard
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - BACKEND_URL=http://actuarial-engine:8000
+    depends_on:
+      actuarial-engine:
+        condition: service_healthy
+    networks:
+      - actuarial-net
+
+networks:
+  actuarial-net:
+    driver: bridge

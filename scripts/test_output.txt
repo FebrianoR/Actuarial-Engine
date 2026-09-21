@@ -1,0 +1,69 @@
+﻿============================================================
+TEST: OJK Codes Parser
+============================================================
+  Codes parsed: 21
+  Errors: []
+    501 - Harta Benda
+    502 - Kendaraan Bermotor
+    503 - Pengangkutan
+    504 - Rangka Kapal
+    505 - Rangka Pesawat
+  [PASS] All validations passed!
+
+============================================================
+TEST: Consolidated Assumptions Parser
+============================================================
+  Errors: []
+  Available years: [2020, 2021, 2022, 2023, 2024, 2025]
+  Loss Ratio by Product: 60 entries
+  Loss Ratio by COB: 9 entries
+  PAD tables: 2
+  ICHE entries: 9
+  Discount rate years: 6
+  Inflation monthly: 96 entries
+  Inflation averages: 6 entries
+  Lapse durations: 40
+  Expense years: 6
+  Summary years: 3
+
+  Sample Loss Ratio Product: PROPERTY/R01 FIRE (DAI)
+    Ratios: {2023: 0.0023913174485906724, 2024: 0.8147070379583381, 2025: 0.2546070125481877}
+
+  Sample Loss Ratio COB: Property
+    Ratios: {2020: 0.51, 2021: 0.48, 2022: 0.431, 2023: 0.7622924660862627, 2024: 1.2263340351599692, 2025: 0.2546070125481877}
+
+  Property Loss Ratio 2023: 0.762292
+  Expense Ratio 2023: 0.142676
+  Discount SAK 2025 Term 0: 0.04744445
+  [PASS] All validations passed!
+
+============================================================
+TEST: Inforce Parser (2023)
+============================================================
+  Parsing (this may take 1-2 minutes for 200K rows)...
+  Parse time: 55.9s
+  Year: 2023
+  Records: 479691
+  Stoploss: 18
+  Errors: []
+
+  First record: BD-A02-00-2023-04-00000199
+    COB: 510, Product: Tanggung Gugat
+    GWP: 200,000.00, NGWP: 170,000.00
+    TSI: 100,000,000.00
+    Begin: 2023-04-01, End: 2024-04-01
+    Methode: PAA
+
+  Pivot summary:
+    Products: ['Kredit', 'Aneka', 'Gempa Bumi', 'Harta Benda', 'Kecelakaan Diri', 'Kendaraan Bermotor', 'Kesehatan', 'Pengangkutan', 'Rangka Kapal', 'Rekayasa', 'Tanggung Gugat']
+    Total policies: 479691
+    Total GWP: 1,317,551,819,688.55
+  [PASS] All validations passed!
+
+============================================================
+RESULTS SUMMARY
+============================================================
+  [PASS]: OJK Codes
+  [PASS]: Assumptions
+  [PASS]: Inforce 2023
+

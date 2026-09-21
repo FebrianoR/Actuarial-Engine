@@ -23,7 +23,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
-    allow_origin_regex=r"https://.*\.(ngrok-free\.app|ngrok-free\.dev|ngrok\.io)",
+    allow_origin_regex=r"https://.*\.(ngrok-free\.app|ngrok-free\.dev|ngrok\.io|up\.railway\.app)",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

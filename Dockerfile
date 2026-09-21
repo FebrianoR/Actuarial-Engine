@@ -9,6 +9,7 @@ WORKDIR /build
 RUN apt-get update && apt-get install -y --no-install-recommends gcc && rm -rf /var/lib/apt/lists/*
 
 COPY pyproject.toml .
+COPY actuarial_engine/ ./actuarial_engine/
 RUN pip install --upgrade pip && pip install --no-cache-dir hatchling && pip install --no-cache-dir .
 
 # ──────────────────────────────────────────────────────────────

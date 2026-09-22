@@ -34,5 +34,9 @@ USER actuser
 
 EXPOSE 8000
 
+# PORT env variable is injected by Render (default 8000)
+ENV PORT=8000
+
 # Jalankan dengan uvicorn production-grade
-CMD ["uvicorn", "actuarial_engine.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+# Workers=2 untuk Render free tier (512MB RAM)
+CMD uvicorn actuarial_engine.main:app --host 0.0.0.0 --port $PORT --workers 2

@@ -1,0 +1,44 @@
+# ──────────────────────────────────────────────────────────────
+#  Render Blueprint – Backend (FastAPI)
+#  https://docs.render.com/blueprint-spec
+# ──────────────────────────────────────────────────────────────
+services:
+  - type: web
+    name: actuarial-engine
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_NAME
+        value: "Actuarial Engine"
+      - key: APP_VERSION
+        value: "0.1.0"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: API_HOST
+        value: "0.0.0.0"
+      - key: API_PORT
+        value: "8000"
+      - key: API_PREFIX
+        value: /api/v1
+      - key: SECRET_KEY
+        generateValue: true
+      - key: API_KEY_HEADER
+        value: X-API-Key
+      - key: ALLOWED_ORIGINS
+        value: '["https://*.vercel.app","http://localhost:3000"]'
+      - key: DEFAULT_ASSUMPTIONS_PATH
+        value: /app/data/assumptions/base_assumptions.json
+      - key: PORTFOLIO_DATA_PATH
+        value: /app/data/sample_portfolios/
+      - key: AUDIT_LOG_PATH
+        value: /app/audit_logs/
+      - key: AUDIT_ENABLED
+        value: "true"
+      - key: RA_SIMULATION_COUNT
+        value: "10000"
+      - key: MAX_PROJECTION_YEARS
+        value: "30"

@@ -16,8 +16,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Backend URL untuk rewrites (Docker service name)
-ENV BACKEND_URL=http://actuarial-engine:8000
+# Backend URL – Railway sets via service variables
+ARG BACKEND_URL=http://actuarial-engine:8000
+ENV BACKEND_URL=${BACKEND_URL}
 
 RUN npm run build
 
@@ -42,5 +43,6 @@ EXPOSE 3000
 
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
+ENV BACKEND_URL=http://localhost:8000
 
 CMD ["node", "server.js"]
